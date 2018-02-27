@@ -11,8 +11,7 @@
                 <div class="col-md-3 movieGrid__movie">
                     <h2>${m.title}</h2>
                     <img src="https://image.tmdb.org/t/p/w154${m.poster_path}" />
-                </div>
-            `
+                </div> `
             if ((idx + 1) % 4 === 0) {
                 titles += "</div><div class='row'>"
             }
