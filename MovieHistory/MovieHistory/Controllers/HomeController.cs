@@ -5,13 +5,25 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MovieHistory.Models;
+using Microsoft.Extensions.Configuration;
+using MovieHistory.Services;
+using Microsoft.Extensions.Options;
 
 namespace MovieHistory.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IApplicationConfiguration _appSettings;
+
+        public HomeController(IApplicationConfiguration appSettings)
+        {
+            _appSettings = appSettings;
+        }
+
         public IActionResult Index()
         {
+            ViewData["apiKey"] = _appSettings.MovieAPIKey;
+
             return View();
         }
 
